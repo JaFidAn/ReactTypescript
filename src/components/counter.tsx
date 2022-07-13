@@ -1,37 +1,51 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-class Counter extends Component {
-  state = {
+interface IProps {}
+
+interface IState {
+  count: number
+}
+
+let Counter: React.FC<IProps> = () => {
+  let [state, setState] = useState<IState>({
     count: 0,
+  })
+
+  let Incr = () => {
+    setState({
+      count: state.count + 1,
+    })
   }
 
-  styles = {
-    fontSize: 50,
-    fontWeight: 'bold',
+  let Decr = () => {
+    setState({
+      count: state.count - 1,
+    })
   }
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 })
-  }
-  render() {
-    return (
-      <div>
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button onClick={() => this.handleIncrement()}>Increment</button>
+  return (
+    <React.Fragment>
+      <h3>Counter Component</h3>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <p className="h3 display 3">{state.count}</p>
+                <button onClick={Incr} className="btn btn-success m-1">
+                  INCR
+                </button>
+                <button onClick={Decr} className="btn btn-danger m-1">
+                  DECR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    )
-  }
-
-  private getBadgeClasses() {
-    let classes = 'ui button '
-    classes += this.state.count === 0 ? 'red' : 'teal'
-    return classes
-  }
-
-  formatCount() {
-    const { count } = this.state
-    return count === 0 ? 'Zero' : count
-  }
+    </React.Fragment>
+  )
 }
 
 export default Counter
