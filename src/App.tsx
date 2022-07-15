@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import AuthUser from './components/AuthUser'
 import Counter from './components/counter'
 import Customer from './components/Customer'
 import { CustomerClass } from './components/CustomerClass'
@@ -7,6 +8,7 @@ import { EmloyyeClass } from './components/EmloyeeClass'
 import Employee from './components/Employee'
 import Greeting from './components/Greeting'
 import LoginForm from './components/LoginForm'
+import UserList from './components/UserList'
 
 function App() {
   return (
@@ -55,9 +57,20 @@ function App() {
               <Greeting />
             </div>
           </div> */}
-          <div className="row">
+          {/* <div className="row">
             <div className="column">
               <LoginForm />
+            </div>
+          </div> */}
+
+          {/* <div className="row">
+            <div className="column">
+              <AuthUser />
+            </div>
+          </div> */}
+          <div className="row">
+            <div className="column">
+              <UserList />
             </div>
           </div>
         </div>
