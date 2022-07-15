@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { UserService2 } from '../services/UserService2'
 import { IUser3 } from './models/IUser3'
 
@@ -42,8 +43,20 @@ let UserList2: React.FC<IProps> = () => {
   let { users, loading, errorMessage } = state
   return (
     <React.Fragment>
-      <h2>User List</h2>
-      <div className="container">
+      <div className="container mt-3">
+        <div className="row">
+          <div className="column">
+            <p className="h3 fw-bold text-success">User List</p>
+            <p className="fst-italic">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              dolorum quod earum nisi blanditiis provident cumque corrupti nemo?
+              Id modi temporibus, nostrum reiciendis assumenda nulla architecto
+              laudantium harum dolorem est?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="container mt-3">
         <div className="row">
           <div className="column">
             <table className="table table-hover text-center table-striped">
@@ -63,7 +76,14 @@ let UserList2: React.FC<IProps> = () => {
                     return (
                       <tr key={user.id}>
                         <td>{user.id}</td>
-                        <td>{user.name}</td>
+                        <td>
+                          <Link
+                            to={`/contacts/${user.id}`}
+                            className="text-decoration-non text-success fw-bold"
+                          >
+                            {user.name}
+                          </Link>
+                        </td>
                         <td>{user.email}</td>
                         <td>{user.phone}</td>
                         <td>{user.company.name}</td>
