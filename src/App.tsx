@@ -9,6 +9,7 @@ import Employee from './components/Employee'
 import Greeting from './components/Greeting'
 import LoginForm from './components/LoginForm'
 import UserList from './components/UserList'
+import UserList2 from './components/UserList2'
 
 function App() {
   return (
@@ -68,9 +69,14 @@ function App() {
               <AuthUser />
             </div>
           </div> */}
-          <div className="row">
+          {/* <div className="row">
             <div className="column">
               <UserList />
+            </div>
+          </div> */}
+          <div className="row">
+            <div className="column">
+              <UserList2 />
             </div>
           </div>
         </div>
